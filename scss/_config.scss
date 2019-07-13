@@ -1,0 +1,38 @@
+$primary-color: #444;
+$secondary-color:#eece1a;
+$show-home-image: true;
+$home-image: url(../img/background1.jpg);
+$background-opacity :0.5;
+// html {
+//     font-size: 10px
+// }
+// rem is used for font size relative to root html element which we can also define 
+@mixin easeOut {
+    transition: all 0.5s ease-out;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@mixin background {
+    @if $show-home-image {
+        &#bg-img {
+            //look for id of bg-img wherever called 
+            background: $home-image;
+            background-attachment: fixed;
+            background-size: cover;
+            &::after {
+                // instead of using overlay div we used a pseudo element 
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background: rgba($primary-color, $background-opacity);
+            }
+        }
+    }
+}
