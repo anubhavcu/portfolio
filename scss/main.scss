@@ -1,6 +1,5 @@
 @import 'config';
 @import 'menu';
-@import 'mobile';
 body {
     @include background();
     background: $primary-color;
@@ -8,7 +7,7 @@ body {
     height: 100%;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.5
+    line-height: 1.5;
 }
 
 //headings
@@ -45,7 +44,9 @@ header {
 
 main {
     padding: 4rem;
-    height: 100%;
+    //height: 100%;
+    //using calc to calculate the length of main tag so that footer doesn't come up if length is short(basically sticking the footer in the bottom). 
+    min-height: calc(100vh-60px);
     .icons {
         margin-top: 1rem;
         a {
@@ -63,4 +64,66 @@ main {
             margin-top: 20vh; //vh -viewport hieght 
         }
     }
+    // &#about {
+    //     // added just to avoid scrolling in the about page 
+    //     overflow: hidden;
+    //     height: calc(100vh -100px)
+    // }
 }
+
+.about-info {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+    grid-template-columns: repeat(3, 1fr);
+    .bio-image {
+        grid-area: bioimage;
+        margin: auto;
+        border-radius: 50%;
+        border: $secondary-color 3px solid;
+        @include easeOut;
+        &:hover {
+            //zoom in hover effect
+            transform: scale(1.03);
+        }
+    }
+    .bio {
+        grid-area: bio;
+        font-size: 1.5rem;
+        @include easeOut;
+        &:hover {
+            //zoom in hover effect
+            transform: scale(1.03);
+        }
+    }
+    .job-1 {
+        grid-area: job1;
+    }
+    .job-2 {
+        grid-area: job2;
+    }
+    .job-3 {
+        grid-area: job3;
+    }
+    .job {
+        background: lighten($primary-color, 5);
+        padding: 0.5rem;
+        border-bottom: $secondary-color 5px solid;
+        @include easeOut;
+        &:hover {
+            // for zoom in effect on hover and included easeOut for smootheness
+            transform: scale(1.09);
+        }
+    }
+}
+
+#main-footer {
+    text-align: center;
+    padding: 1rem;
+    background: darken($primary-color, 10);
+    color: set-text-color($primary-color);
+    height: 60px;
+    bottom: 0;
+}
+
+@import 'mobile';

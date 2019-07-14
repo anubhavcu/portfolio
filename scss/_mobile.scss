@@ -38,6 +38,11 @@
              background-size: contain; // to fit the image in the container 
          }
      }
+     .about-info {
+         // for moving it in single line 
+         grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+         grid-template-columns: 1fr;
+     }
  }
  
  //smartphones
