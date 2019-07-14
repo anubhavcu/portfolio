@@ -80,7 +80,7 @@
             height: 250px;
             background: url(../img/portrait.jpg);
             //background-attachment: fixed;
-            background-size: contain;
+            background-size: contain; // to fit in the container
             border-radius: 50%;
             border: solid 3px $secondary-color;
             // &:hover {     // hover effect on image 
