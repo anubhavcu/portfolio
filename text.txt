@@ -1,5 +1,0 @@
-after commit push the code to github using
-  : git push -u origin master
-
-then deploy the code using :
-  : npm run deploy
